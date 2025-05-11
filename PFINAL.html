@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>VELOCIDAD DEL VIENTO &#8212; Machine Learning</title>
+    <title>Velocidad del viento &#8212; Machine Learning</title>
   
   
   
@@ -65,6 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'PFINAL';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Ejercicio Segmentación" href="segmentacion.html" />
     <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -157,8 +158,9 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">VELOCIDAD DEL VIENTO</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Velocidad del viento</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="segmentacion.html">Ejercicio Segmentación</a></li>
 </ul>
 
     </div>
@@ -310,7 +312,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>VELOCIDAD DEL VIENTO</h1>
+    <h1>Velocidad del viento</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -320,9 +322,30 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">VELOCIDAD DEL VIENTO</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Velocidad del viento</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lectura-de-datos">LECTURA DE DATOS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura-base-de-datos">ESTRUCTURA BASE DE DATOS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas-descriptivas">ESTADÍSTICAS DESCRIPTIVAS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-faltantes">DATOS FALTANTES</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion">VISUALIZACIÓN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-vif">ANALISIS VIF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-regresion">MODELOS DE REGRESIÓN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-lineal">REGRESIÓN LINEAL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge">RIDGE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso">LASSO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arboles-de-decision">Árboles de Decisión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">XGBoost</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-vector-regression">Support Vector Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados">RESULTADOS</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deteccion-de-fraude">Detección de fraude</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imputacion">Imputación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imputacion">Imputación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funcon-generica">Funcón generica</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -338,7 +361,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="velocidad-del-viento">
-<h1>VELOCIDAD DEL VIENTO<a class="headerlink" href="#velocidad-del-viento" title="Permalink to this heading">#</a></h1>
+<h1>Velocidad del viento<a class="headerlink" href="#velocidad-del-viento" title="Permalink to this heading">#</a></h1>
+<section id="lectura-de-datos">
+<h2>LECTURA DE DATOS<a class="headerlink" href="#lectura-de-datos" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -346,13 +371,15 @@ document.write(`
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">skew</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
 <span class="c1"># Estilo visual</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/lihkir/Data/main/wind_speed/data_treino_dv_df_2000_2010.csv&quot;</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">s</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">&quot;HORA_UTC&quot;</span><span class="p">,</span>                      <span class="c1"># HORA (UTC)</span>
@@ -373,10 +400,12 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+<section id="estructura-base-de-datos">
+<h2>ESTRUCTURA BASE DE DATOS<a class="headerlink" href="#estructura-base-de-datos" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># RESUMEN GENERAL</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dimensiones: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dimensiones: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Tipos de variables:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 
 <span class="c1"># Separar tipos de variables</span>
@@ -429,10 +458,18 @@ dtype: object
 </div>
 </div>
 </div>
+<p>El dataset contiene un total de 87.693 observaciones y 13 variables, lo que representa una base de datos robusta. Del total de 13 variables:</p>
+<ul class="simple">
+<li><p>12 variables son de tipo numérico continuo (float64), lo que es ideal para el análisis estadístico, la visualización y la modelación con técnicas de regresión multivariada o redes neuronales.</p></li>
+<li><p>1 variable es de tipo object, correspondiente a HORA_UTC, que representa el componente temporal de la observación.</p></li>
+</ul>
+<p>Aunque en este bloque no se observan los nombres originales, se destaca que ya se realizó una renombramiento apropiado de las columnas, acortando las etiquetas excesivamente largas y eliminando caracteres especiales o redundancias. Esto no solo mejora la legibilidad de las salidas gráficas, sino que también previene errores en operaciones de programación o visualización.</p>
+</section>
+<section id="estadisticas-descriptivas">
+<h2>ESTADÍSTICAS DESCRIPTIVAS<a class="headerlink" href="#estadisticas-descriptivas" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ESTADÍSTICAS DESCRIPTIVAS</span>
-<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">[[</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;25%&quot;</span><span class="p">,</span> <span class="s2">&quot;50%&quot;</span><span class="p">,</span> <span class="s2">&quot;75%&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">[[</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;25%&quot;</span><span class="p">,</span> <span class="s2">&quot;50%&quot;</span><span class="p">,</span> <span class="s2">&quot;75%&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -602,10 +639,19 @@ dtype: object
 </table>
 </div></div></div>
 </div>
+<p>Las estadísticas descriptivas confirman la calidad estructural del conjunto de datos, pero también revelan aspectos críticos para el modelado:</p>
+<ul class="simple">
+<li><p>Algunas variables tienen distribuciones altamente asimétricas (PRECIPITACION_TOTAL), lo cual puede afectar modelos lineales.</p></li>
+<li><p>La alta redundancia esperada entre humedad y presión sugiere la necesidad de reducción de dimensionalidad mediante VIF.</p></li>
+<li><p>La variable objetivo (VELOCIDAD_VIENTO_MS) presenta distribución adecuada para modelado regresivo, con suficientes variaciones para capturar patrones.</p></li>
+</ul>
+<p>Este análisis fundamenta la selección y tratamiento posterior de variables, así como el diseño de modelos robustos capaces de generalizar predicciones para velocidad del viento en escenarios de alta variabilidad ambiental.</p>
+</section>
+<section id="datos-faltantes">
+<h2>DATOS FALTANTES<a class="headerlink" href="#datos-faltantes" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DATOS FALTANTES</span>
-<span class="n">faltantes</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">faltantes</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">porcentaje</span> <span class="o">=</span> <span class="p">(</span><span class="n">faltantes</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
 <span class="n">missing</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;Total&quot;</span><span class="p">:</span> <span class="n">faltantes</span><span class="p">,</span> <span class="s2">&quot;Porcentaje&quot;</span><span class="p">:</span> <span class="n">porcentaje</span><span class="p">})</span>
 <span class="n">missing</span><span class="p">[</span><span class="n">missing</span><span class="o">.</span><span class="n">Total</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Total&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -640,81 +686,69 @@ dtype: object
 </table>
 </div></div></div>
 </div>
+</section>
+<section id="visualizacion">
+<h2>VISUALIZACIÓN<a class="headerlink" href="#visualizacion" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HISTOGRAMAS DE VARIABLES NUMÉRICAS</span>
-<span class="n">vars_numericas</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vars_numericas</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
 
-<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">vars_numericas</span><span class="p">:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span> 
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vars_numericas</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>  
     <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Distribución de </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frecuencia&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/miniconda3/envs/ml_venv/lib/python3.9/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-</pre></div>
-</div>
-<img alt="_images/39485e964fbd429e7e4beeca2ca299c5de5de5a68108f19a28379a347224c23a.png" src="_images/39485e964fbd429e7e4beeca2ca299c5de5de5a68108f19a28379a347224c23a.png" />
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/miniconda3/envs/ml_venv/lib/python3.9/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-</pre></div>
-</div>
-<img alt="_images/201fbb3e11d73ab1f561f42e52ef47241b87f5f8c5ae1f8522296cbf7816bdec.png" src="_images/201fbb3e11d73ab1f561f42e52ef47241b87f5f8c5ae1f8522296cbf7816bdec.png" />
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/miniconda3/envs/ml_venv/lib/python3.9/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-</pre></div>
-</div>
-<img alt="_images/766855e6a5a0bc94b72c260056ec1df1fee623b71615a446d61980f7b00de171.png" src="_images/766855e6a5a0bc94b72c260056ec1df1fee623b71615a446d61980f7b00de171.png" />
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/miniconda3/envs/ml_venv/lib/python3.9/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-</pre></div>
-</div>
-<img alt="_images/5bb5d6d08d95f45c3fbec0411cd8b22587a4cc42782c03ae93d084bab3eb1c46.png" src="_images/5bb5d6d08d95f45c3fbec0411cd8b22587a4cc42782c03ae93d084bab3eb1c46.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># BOXPLOTS</span>
-<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">vars_numericas</span><span class="p">:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-    <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Boxplot de </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Asimetría (skew) de </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">skew</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/10db4ecf0e227ce40f56c6e88e2d4808362f872dcae6c53b9a5d5c9930517c6b.png" src="_images/10db4ecf0e227ce40f56c6e88e2d4808362f872dcae6c53b9a5d5c9930517c6b.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Asimetría (skew) de DIRECCION_VIENTO_GR: -0.86
-</pre></div>
-</div>
-<img alt="_images/34f1985ce9201f0afb30f7fb7e8ea940e8ab17104128c0be2b5376bbe7b6bee7.png" src="_images/34f1985ce9201f0afb30f7fb7e8ea940e8ab17104128c0be2b5376bbe7b6bee7.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Asimetría (skew) de VELOCIDAD_VIENTO_MS: 0.37
-</pre></div>
-</div>
-<img alt="_images/bcae31a93c4b804d9c4595af76647e30740c5a2e77f0369d9031983759924982.png" src="_images/bcae31a93c4b804d9c4595af76647e30740c5a2e77f0369d9031983759924982.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Asimetría (skew) de HUMEDAD_MAX_ANT: -0.48
-</pre></div>
-</div>
-<img alt="_images/42d98520a9e6ee2421be33961b12d3c9057889cb7f1bff407dbfaf88b6fddfa9.png" src="_images/42d98520a9e6ee2421be33961b12d3c9057889cb7f1bff407dbfaf88b6fddfa9.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Asimetría (skew) de HUMEDAD_MIN_ANT: -0.23
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
-<span class="c1"># Define aquí 4 pares de variables explicativas</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c93f9443b933cc12b7663dd92f8d0d5b25089aecd44c3f8b1a27014621bc8850.png" src="_images/c93f9443b933cc12b7663dd92f8d0d5b25089aecd44c3f8b1a27014621bc8850.png" />
+</div>
+</div>
+<p>La dirección del viento, presenta una distribución altamente bimodal, con una clara concentración en el extremo derecho (valores cercanos a 1.0), y un segundo pico en el valor mínimo (-1.0).</p>
+<ul class="simple">
+<li><p>Esto sugiere que la dirección del viento está codificada en una escala trigonométrica (posiblemente como el coseno o seno de un ángulo), lo que implica que no es una variable continua clásica, sino una proyección circular.</p></li>
+</ul>
+<p>La velocidad del viento presenta una asimetría positiva moderada: la mayoría de los datos se concentran entre 1 y 4 m/s, con una caída pronunciada después de los 6 m/s.</p>
+<ul class="simple">
+<li><p>Esta distribución es típica de variables físicas sujetas a mínimos naturales (como el 0 m/s) y fluctuaciones meteorológicas.</p></li>
+<li><p>El sesgo indica que podría beneficiarse de una transformación logarítmica o Box-Cox si se planea usar modelos lineales sensibles a la normalidad.</p></li>
+</ul>
+<p>La humedad máxima presenta una acumulación de valores hacia el extremo superior (100%)</p>
+<p>La humedad mínima tiene una distribución más plana y multimodal, con mayor dispersión que su contraparte de humedad máxima.</p>
+<ul class="simple">
+<li><p>La concentración entre 40% y 90% sugiere condiciones de humedad variables, posiblemente explicadas por interacciones con temperatura y precipitaciones.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vars_numericas</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;number&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>  
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vars_numericas</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Boxplot de </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="se">\n</span><span class="s2">Asimetría (skew): </span><span class="si">{</span><span class="n">skew</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8239f14af44b9a8dde1e3a3cf477fadb104085cc4d6e532dda22e8a674ab2799.png" src="_images/8239f14af44b9a8dde1e3a3cf477fadb104085cc4d6e532dda22e8a674ab2799.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define aquí 4 pares de variables explicativas</span>
 <span class="n">pares</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">(</span><span class="s1">&#39;DIRECCION_VIENTO_GR&#39;</span><span class="p">,</span> <span class="s1">&#39;VELOCIDAD_VIENTO_MS&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;VELOCIDAD_VIENTO_MS&#39;</span><span class="p">,</span> <span class="s1">&#39;HUMEDAD_HORARIA&#39;</span><span class="p">),</span>
@@ -761,24 +795,928 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e190574400ed523778c081fd5720164533ac9051c20a7479e7cf3912983dcfb4.png" src="_images/e190574400ed523778c081fd5720164533ac9051c20a7479e7cf3912983dcfb4.png" />
+<img alt="_images/40ba03bd5c337c94e964cdf4a8d9bb54a36ddf387d35da042fe395feaa96502a.png" src="_images/40ba03bd5c337c94e964cdf4a8d9bb54a36ddf387d35da042fe395feaa96502a.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlación de Pearson entre DIRECCION_VIENTO_GR y VELOCIDAD_VIENTO_MS: 0.26
 </pre></div>
 </div>
-<img alt="_images/2a99a2dd9c970a1ab1daeb7361df8a2deaf7b4eecd5ffbeece5cbed0fb26abd4.png" src="_images/2a99a2dd9c970a1ab1daeb7361df8a2deaf7b4eecd5ffbeece5cbed0fb26abd4.png" />
+<img alt="_images/fa383d904d14650750d42d166f643daf64ec402533958801de7eb4f8a8708f5a.png" src="_images/fa383d904d14650750d42d166f643daf64ec402533958801de7eb4f8a8708f5a.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlación de Pearson entre VELOCIDAD_VIENTO_MS y HUMEDAD_HORARIA: -0.30
 </pre></div>
 </div>
-<img alt="_images/4328d3b15960f98be63bc8cb474d8397f64b8df340bc85a28c79eca5aee7e1bb.png" src="_images/4328d3b15960f98be63bc8cb474d8397f64b8df340bc85a28c79eca5aee7e1bb.png" />
+<img alt="_images/a8f8f0ced2cc1ea00ec7137b4166e459ce6dbc25fe90045699139f4aee083afe.png" src="_images/a8f8f0ced2cc1ea00ec7137b4166e459ce6dbc25fe90045699139f4aee083afe.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlación de Pearson entre TEMP_MAX_ANT_C y PRESION_HORARIA: -0.06
 </pre></div>
 </div>
-<img alt="_images/eaf5bc41cf82284214d552248b607844723cbcbdc583685312c4c5e22de13308.png" src="_images/eaf5bc41cf82284214d552248b607844723cbcbdc583685312c4c5e22de13308.png" />
+<img alt="_images/ac023c6338193f24cb3268cc2b50388c6a77f9723ba17ed1298fc67b1e035b6d.png" src="_images/ac023c6338193f24cb3268cc2b50388c6a77f9723ba17ed1298fc67b1e035b6d.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlación de Pearson entre PRECIPITACION_TOTAL y RAJADA_MAX_VIENTO_MS: 0.12
 </pre></div>
 </div>
 </div>
 </div>
+<ol class="arabic simple">
+<li><p>DIRECCION_VIENTO_GR vs VELOCIDAD_VIENTO_MS</p></li>
+</ol>
+<ul class="simple">
+<li><p>Correlación de Pearson: 0.26</p></li>
+<li><p>La dirección del viento muestra una correlación positiva débil con la velocidad, lo que indica que ciertos rangos de dirección tienden a coincidir con velocidades mayores.</p></li>
+<li><p>El scatterplot revela un patrón disperso con mayor densidad en los extremos positivos, y el regplot sugiere una leve pendiente ascendente.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>VELOCIDAD_VIENTO_MS vs HUMEDAD_HORARIA</p></li>
+</ol>
+<ul class="simple">
+<li><p>Correlación de Pearson: -0.30</p></li>
+<li><p>Existe una correlación negativa moderada, donde mayores velocidades del viento tienden a asociarse con menor humedad relativa.</p></li>
+<li><p>Este patrón es coherente con fenómenos físicos: los vientos más intensos favorecen la mezcla del aire y la evaporación, reduciendo la humedad superficial.</p></li>
+<li><p>regplot muestra una tendencia clara descendente, aunque la nube de puntos es amplia, lo cual sugiere variabilidad adicional no explicada por esta sola variable.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>TEMP_MAX_ANT_C vs PRESION_HORARIA</p></li>
+</ol>
+<ul class="simple">
+<li><p>Correlación de Pearson: -0.06</p></li>
+<li><p>La correlación es prácticamente nula, lo cual es confirmado visualmente: el scatterplot muestra una nube de puntos sin patrón definido, y el regplot tiene una pendiente casi horizontal.</p></li>
+<li><p>Aunque temperatura y presión están relacionadas físicamente a través de la densidad del aire, en este conjunto de datos no presentan una relación directa significativa.</p></li>
+<li><p>Esta independencia estadística puede ser útil para el modelado: ambas variables pueden usarse simultáneamente sin riesgo inmediato de multicolinealidad.</p></li>
+<li><p>Nota: la presencia de puntos por encima de 1000 mbar podría indicar valores atípicos o errores de medición que deben ser verificados.</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>PRECIPITACION_TOTAL vs RAJADA_MAX_VIENTO_MS</p></li>
+</ol>
+<ul class="simple">
+<li><p>Correlación de Pearson: 0.12</p></li>
+<li><p>Existe una correlación positiva débil, aunque el regplot muestra una tendencia ascendente clara: a mayor precipitación acumulada, mayores ráfagas máximas de viento.</p></li>
+<li><p>Sin embargo, la nube de puntos muestra una alta concentración en cero para PRECIPITACION_TOTAL, lo que sugiere una distribución fuertemente sesgada y truncada (censura a izquierda).</p></li>
+<li><p>Este comportamiento es típico de fenómenos meteorológicos episódicos: en la mayoría del tiempo no llueve, pero cuando lo hace, también ocurren ráfagas fuertes.</p></li>
+</ul>
+</section>
+<section id="analisis-vif">
+<h2>ANALISIS VIF<a class="headerlink" href="#analisis-vif" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.stats.outliers_influence</span> <span class="kn">import</span> <span class="n">variance_inflation_factor</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="c1"># Subconjunto numérico sin la variable objetivo</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;number&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;VELOCIDAD_VIENTO_MS&#39;</span><span class="p">])</span>
+
+<span class="c1"># Escalar para que el VIF no se vea afectado por magnitudes distintas</span>
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Calcular VIF para cada variable</span>
+<span class="n">vif_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">vif_data</span><span class="p">[</span><span class="s2">&quot;Variable&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">vif_data</span><span class="p">[</span><span class="s2">&quot;VIF&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">variance_inflation_factor</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+
+<span class="c1"># Mostrar resultados</span>
+<span class="n">vif_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;VIF&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Variable</th>
+      <th>VIF</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>HUMEDAD_MIN_ANT</td>
+      <td>80.560353</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>HUMEDAD_MAX_ANT</td>
+      <td>77.771236</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>TEMP_MAX_ANT_C</td>
+      <td>68.101834</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>TEMP_MIN_ANT_C</td>
+      <td>57.271259</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>HUMEDAD_HORARIA</td>
+      <td>51.849641</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>PRESION_MIN_ANT</td>
+      <td>16.410043</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>PRESION_MAX_ANT</td>
+      <td>16.001623</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>PRESION_HORARIA</td>
+      <td>4.900592</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>DIRECCION_VIENTO_GR</td>
+      <td>1.311831</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>RAJADA_MAX_VIENTO_MS</td>
+      <td>1.275703</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>PRECIPITACION_TOTAL</td>
+      <td>1.122099</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calcular_vif</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Devuelve un DataFrame con los VIFs de cada variable.&quot;&quot;&quot;</span>
+    <span class="n">X_scaled</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">vif_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="n">vif_df</span><span class="p">[</span><span class="s2">&quot;Variable&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span>
+    <span class="n">vif_df</span><span class="p">[</span><span class="s2">&quot;VIF&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">variance_inflation_factor</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+    <span class="k">return</span> <span class="n">vif_df</span>
+
+<span class="c1"># Variables numéricas predictoras (excluyendo la respuesta)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;number&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;VELOCIDAD_VIENTO_MS&#39;</span><span class="p">])</span>
+
+<span class="c1"># Iterar mientras haya variables con VIF &gt;= 10</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">vif_df</span> <span class="o">=</span> <span class="n">calcular_vif</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">max_vif</span> <span class="o">=</span> <span class="n">vif_df</span><span class="p">[</span><span class="s1">&#39;VIF&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">max_vif</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Todas las variables tienen VIF &lt; 10&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">var_out</span> <span class="o">=</span> <span class="n">vif_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;VIF&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;Variable&#39;</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Eliminando variable &#39;</span><span class="si">{</span><span class="n">var_out</span><span class="si">}</span><span class="s2">&#39; con VIF = </span><span class="si">{</span><span class="n">max_vif</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">var_out</span><span class="p">])</span>
+
+<span class="c1"># Resultado final</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Variables finales sin multicolinealidad severa:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+<span class="c1"># Mostrar VIF final ordenado</span>
+<span class="n">vif_df_final</span> <span class="o">=</span> <span class="n">calcular_vif</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;VIF&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> VIF final después de la depuración:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vif_df_final</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eliminando variable &#39;HUMEDAD_MIN_ANT&#39; con VIF = 80.56
+Eliminando variable &#39;HUMEDAD_HORARIA&#39; con VIF = 46.38
+Eliminando variable &#39;TEMP_MAX_ANT_C&#39; con VIF = 22.20
+Eliminando variable &#39;PRESION_MIN_ANT&#39; con VIF = 16.07
+Todas las variables tienen VIF &lt; 10
+
+ Variables finales sin multicolinealidad severa:
+[&#39;DIRECCION_VIENTO_GR&#39;, &#39;HUMEDAD_MAX_ANT&#39;, &#39;TEMP_MIN_ANT_C&#39;, &#39;PRESION_HORARIA&#39;, &#39;PRECIPITACION_TOTAL&#39;, &#39;RAJADA_MAX_VIENTO_MS&#39;, &#39;PRESION_MAX_ANT&#39;]
+
+ VIF final después de la depuración:
+
+               Variable       VIF
+6       PRESION_MAX_ANT  4.719906
+3       PRESION_HORARIA  4.547480
+1       HUMEDAD_MAX_ANT  2.130640
+2        TEMP_MIN_ANT_C  1.978843
+0   DIRECCION_VIENTO_GR  1.286314
+5  RAJADA_MAX_VIENTO_MS  1.250473
+4   PRECIPITACION_TOTAL  1.064873
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="modelos-de-regresion">
+<h2>MODELOS DE REGRESIÓN<a class="headerlink" href="#modelos-de-regresion" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_percentage_error</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.diagnostic</span> <span class="kn">import</span> <span class="n">acorr_ljungbox</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">jarque_bera</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ordenar por tiempo y resetear índice</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;HORA_UTC&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Lista de variables seleccionadas tras VIF</span>
+<span class="n">variables_modelo</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;PRESION_HORARIA&#39;</span><span class="p">,</span> <span class="s1">&#39;DIRECCION_VIENTO_GR&#39;</span><span class="p">,</span> <span class="s1">&#39;RAJADA_MAX_VIENTO_MS&#39;</span><span class="p">,</span> <span class="s1">&#39;PRECIPITACION_TOTAL&#39;</span><span class="p">]</span>
+
+<span class="c1"># Definir X y y</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">variables_modelo</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;VELOCIDAD_VIENTO_MS&#39;</span><span class="p">]</span>
+
+<span class="c1"># Crear partición temporal (T = 7 días)</span>
+<span class="n">tamaño_ventana</span> <span class="o">=</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">24</span>  <span class="c1"># 7 días * 24 horas</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="o">-</span><span class="n">tamaño_ventana</span><span class="p">]</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="n">tamaño_ventana</span><span class="p">:]</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="o">-</span><span class="n">tamaño_ventana</span><span class="p">]</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="n">tamaño_ventana</span><span class="p">:]</span>
+
+<span class="c1"># Escalamiento solo de variables numéricas (ya no hay categóricas en este set)</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skopt</span> <span class="kn">import</span> <span class="n">BayesSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_percentage_error</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.diagnostic</span> <span class="kn">import</span> <span class="n">acorr_ljungbox</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="k">def</span> <span class="nf">entrenar_evaluar_modelo_bayes</span><span class="p">(</span><span class="n">modelo_base</span><span class="p">,</span> <span class="n">search_space</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Entrena y evalúa un modelo de regresión usando BayesSearchCV.</span>
+<span class="sd">    Requiere que las claves de search_space estén escritas como &#39;regresor__param&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;regresor&#39;</span><span class="p">,</span> <span class="n">modelo_base</span><span class="p">)</span>
+    <span class="p">])</span>
+
+    <span class="n">search</span> <span class="o">=</span> <span class="n">BayesSearchCV</span><span class="p">(</span>
+        <span class="n">estimator</span><span class="o">=</span><span class="n">pipeline</span><span class="p">,</span>
+        <span class="n">search_spaces</span><span class="o">=</span><span class="n">search_space</span><span class="p">,</span>  <span class="c1"># ✅ No anidar bajo &#39;regresor&#39;</span>
+        <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">,</span>
+        <span class="n">n_iter</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+    <span class="p">)</span>
+
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+    <span class="n">best_model</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">best_estimator_</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+    <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+    <span class="n">mape</span> <span class="o">=</span> <span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">residuos</span> <span class="o">=</span> <span class="n">y_test</span> <span class="o">-</span> <span class="n">y_pred</span>
+    <span class="n">ljung_box_pvalue</span> <span class="o">=</span> <span class="n">acorr_ljungbox</span><span class="p">(</span><span class="n">residuos</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">return_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;lb_pvalue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">jb_stat</span><span class="p">,</span> <span class="n">jb_pvalue</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">jarque_bera</span><span class="p">(</span><span class="n">residuos</span><span class="p">)</span>
+
+    <span class="n">resultados</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;Modelo&#39;</span><span class="p">:</span> <span class="n">tipo_modelo</span><span class="p">(</span><span class="n">modelo_base</span><span class="p">),</span>
+        <span class="s1">&#39;Mejores Hiperparámetros&#39;</span><span class="p">:</span> <span class="n">search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">,</span>
+        <span class="s1">&#39;Tiempo de Entrenamiento (s)&#39;</span><span class="p">:</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">,</span>
+        <span class="s1">&#39;RMSE&#39;</span><span class="p">:</span> <span class="n">rmse</span><span class="p">,</span>
+        <span class="s1">&#39;MAPE&#39;</span><span class="p">:</span> <span class="n">mape</span><span class="p">,</span>
+        <span class="s1">&#39;R²&#39;</span><span class="p">:</span> <span class="n">r2</span><span class="p">,</span>
+        <span class="s1">&#39;Ljung-Box p-value&#39;</span><span class="p">:</span> <span class="n">ljung_box_pvalue</span><span class="p">,</span>
+        <span class="s1">&#39;Jarque-Bera p-value&#39;</span><span class="p">:</span> <span class="n">jb_pvalue</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Gráfico: valores reales vs predichos</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">y_test</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y_test</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="p">[</span><span class="n">y_test</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y_test</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valor Real&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor Predicho&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Real vs Predicho (BayesSearchCV)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="c1"># Gráfico: distribución de residuos</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">residuos</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;teal&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histograma de Residuos&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Residuos&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frecuencia&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">resultados</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tipo_modelo</span><span class="p">(</span><span class="n">modelo</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span><span class="p">,</span> <span class="n">Ridge</span><span class="p">,</span> <span class="n">Lasso</span>
+    <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+    <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVR</span>
+    <span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPRegressor</span>
+    <span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsRegressor</span>
+    <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">StackingRegressor</span>
+    <span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBRegressor</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">LinearRegression</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Regresión Lineal&quot;</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">Ridge</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Ridge&quot;</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">Lasso</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Lasso&quot;</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">RandomForestRegressor</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Random Forest&quot;</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">XGBRegressor</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;XGBoost&quot;</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">SVR</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;SVR&quot;</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">MLPRegressor</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;MLP&quot;</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">KNeighborsRegressor</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;KNN&quot;</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">StackingRegressor</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Stacking&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">modelo</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="knn">
+<h2>KNN<a class="headerlink" href="#knn" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsRegressor</span>
+<span class="kn">from</span> <span class="nn">skopt.space</span> <span class="kn">import</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">Categorical</span>
+
+<span class="c1"># Definir modelo base</span>
+<span class="n">modelo_knn</span> <span class="o">=</span> <span class="n">KNeighborsRegressor</span><span class="p">()</span>
+
+<span class="c1"># Definir el espacio de búsqueda de hiperparámetros</span>
+<span class="n">espacio_knn</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;regresor__n_neighbors&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+    <span class="s1">&#39;regresor__weights&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">([</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="s1">&#39;distance&#39;</span><span class="p">]),</span>
+    <span class="s1">&#39;regresor__p&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 1: Manhattan, 2: Euclídea</span>
+<span class="p">}</span>
+
+<span class="c1"># Entrenar y evaluar el modelo</span>
+<span class="n">resultados_knn</span> <span class="o">=</span> <span class="n">entrenar_evaluar_modelo_bayes</span><span class="p">(</span>
+    <span class="n">modelo_knn</span><span class="p">,</span>
+    <span class="n">espacio_knn</span><span class="p">,</span>
+    <span class="n">X_train_scaled</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="p">,</span>
+    <span class="n">X_test_scaled</span><span class="p">,</span>
+    <span class="n">y_test</span>
+<span class="p">)</span>
+
+<span class="c1"># Mostrar los resultados</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Resultados del modelo KNN (BayesSearchCV):&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">resultados_knn</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3c7ca0fed2b8fc22aa1ba07b17e447edfd22e10bec7c57da0d6e90c61ce97d26.png" src="_images/3c7ca0fed2b8fc22aa1ba07b17e447edfd22e10bec7c57da0d6e90c61ce97d26.png" />
+<img alt="_images/9b373bc2823fb9a70b809efd99031db54074e937c34ef7b687450c620448f397.png" src="_images/9b373bc2823fb9a70b809efd99031db54074e937c34ef7b687450c620448f397.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultados del modelo KNN (BayesSearchCV):
+Modelo: KNN
+Mejores Hiperparámetros: OrderedDict([(&#39;regresor__n_neighbors&#39;, 15), (&#39;regresor__p&#39;, 2), (&#39;regresor__weights&#39;, &#39;uniform&#39;)])
+Tiempo de Entrenamiento (s): 17.62375020980835
+RMSE: 0.6085667088770459
+MAPE: 69698565661686.55
+R²: 0.6759118042946957
+Ljung-Box p-value: 0.4288104773589014
+Jarque-Bera p-value: 6.615171952050504e-11
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="regresion-lineal">
+<h2>REGRESIÓN LINEAL<a class="headerlink" href="#regresion-lineal" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_percentage_error</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.diagnostic</span> <span class="kn">import</span> <span class="n">acorr_ljungbox</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">jarque_bera</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># Entrenamiento simple</span>
+<span class="n">modelo_rl</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">modelo_rl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="c1"># Predicción</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">modelo_rl</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">)</span>
+<span class="n">residuos</span> <span class="o">=</span> <span class="n">y_test</span> <span class="o">-</span> <span class="n">y_pred</span>
+
+<span class="c1"># Métricas</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="n">mape</span> <span class="o">=</span> <span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">ljung_box_pvalue</span> <span class="o">=</span> <span class="n">acorr_ljungbox</span><span class="p">(</span><span class="n">residuos</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">return_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;lb_pvalue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">jb_stat</span><span class="p">,</span> <span class="n">jb_pvalue</span> <span class="o">=</span> <span class="n">jarque_bera</span><span class="p">(</span><span class="n">residuos</span><span class="p">)</span>
+
+<span class="n">resultados_rl</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Modelo&#39;</span><span class="p">:</span> <span class="s1">&#39;Regresión Lineal&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Mejores Hiperparámetros&#39;</span><span class="p">:</span> <span class="s1">&#39;N/A&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Tiempo de Entrenamiento (s)&#39;</span><span class="p">:</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">,</span>
+    <span class="s1">&#39;RMSE&#39;</span><span class="p">:</span> <span class="n">rmse</span><span class="p">,</span>
+    <span class="s1">&#39;MAPE&#39;</span><span class="p">:</span> <span class="n">mape</span><span class="p">,</span>
+    <span class="s1">&#39;R²&#39;</span><span class="p">:</span> <span class="n">r2</span><span class="p">,</span>
+    <span class="s1">&#39;Ljung-Box p-value&#39;</span><span class="p">:</span> <span class="n">ljung_box_pvalue</span><span class="p">,</span>
+    <span class="s1">&#39;Jarque-Bera p-value&#39;</span><span class="p">:</span> <span class="n">jb_pvalue</span>
+<span class="p">}</span>
+
+<span class="c1"># Mostrar resultados</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Resultados del modelo Regresión Lineal:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">resultados_rl</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultados del modelo Regresión Lineal:
+Modelo: Regresión Lineal
+Mejores Hiperparámetros: N/A
+Tiempo de Entrenamiento (s): 0.03901076316833496
+RMSE: 0.6147650415050411
+MAPE: 74055913867119.73
+R²: 0.6692764218844889
+Ljung-Box p-value: 0.7486457823338261
+Jarque-Bera p-value: 2.632964703273337e-26
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ridge">
+<h2>RIDGE<a class="headerlink" href="#ridge" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span>
+<span class="kn">from</span> <span class="nn">skopt.space</span> <span class="kn">import</span> <span class="n">Real</span>
+
+<span class="c1"># Definir el modelo base</span>
+<span class="n">modelo_ridge</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">()</span>
+
+<span class="c1"># Definir el espacio de búsqueda para alpha</span>
+<span class="n">espacio_ridge</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;regresor__alpha&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Entrenar y evaluar el modelo con la función general</span>
+<span class="n">resultados_ridge</span> <span class="o">=</span> <span class="n">entrenar_evaluar_modelo_bayes</span><span class="p">(</span>
+    <span class="n">modelo_ridge</span><span class="p">,</span>
+    <span class="n">espacio_ridge</span><span class="p">,</span>
+    <span class="n">X_train_scaled</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="p">,</span>
+    <span class="n">X_test_scaled</span><span class="p">,</span>
+    <span class="n">y_test</span>
+<span class="p">)</span>
+
+<span class="c1"># Mostrar los resultados</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Resultados del modelo Ridge (BayesSearchCV):&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">resultados_ridge</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/cdaba143f375741aa6e84e6da6c8f01429ffb06552169ef16174827e873c6e3f.png" src="_images/cdaba143f375741aa6e84e6da6c8f01429ffb06552169ef16174827e873c6e3f.png" />
+<img alt="_images/696cf9e9738561accfa26b9729518133c6cf3c76cd26fbb5346f9ba9302881e4.png" src="_images/696cf9e9738561accfa26b9729518133c6cf3c76cd26fbb5346f9ba9302881e4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultados del modelo Ridge (BayesSearchCV):
+Modelo: Ridge
+Mejores Hiperparámetros: OrderedDict([(&#39;regresor__alpha&#39;, 80.00069562111437)])
+Tiempo de Entrenamiento (s): 13.55602216720581
+RMSE: 0.6145563880326371
+MAPE: 74102444015858.2
+R²: 0.6695008813373633
+Ljung-Box p-value: 0.7493869881229958
+Jarque-Bera p-value: 3.665239519368606e-26
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lasso">
+<h2>LASSO<a class="headerlink" href="#lasso" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Lasso</span>
+<span class="kn">from</span> <span class="nn">skopt.space</span> <span class="kn">import</span> <span class="n">Real</span>
+
+<span class="c1"># Definir el modelo base</span>
+<span class="n">modelo_lasso</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="c1"># Espacio de búsqueda para alpha (penalización L1)</span>
+<span class="n">espacio_lasso</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;regresor__alpha&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Entrenar y evaluar el modelo</span>
+<span class="n">resultados_lasso</span> <span class="o">=</span> <span class="n">entrenar_evaluar_modelo_bayes</span><span class="p">(</span>
+    <span class="n">modelo_lasso</span><span class="p">,</span>
+    <span class="n">espacio_lasso</span><span class="p">,</span>
+    <span class="n">X_train_scaled</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="p">,</span>
+    <span class="n">X_test_scaled</span><span class="p">,</span>
+    <span class="n">y_test</span>
+<span class="p">)</span>
+
+<span class="c1"># Mostrar resultados</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Resultados del modelo Lasso (BayesSearchCV):&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">resultados_lasso</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/97fedbb52e1458a38d0dd9031b87daf88afc617705ab2cc2123568ea4a178924.png" src="_images/97fedbb52e1458a38d0dd9031b87daf88afc617705ab2cc2123568ea4a178924.png" />
+<img alt="_images/2578eea25e8ceb91f9adbfcb6ed43ece2b5bea3fd42878168d479ca8df1c06eb.png" src="_images/2578eea25e8ceb91f9adbfcb6ed43ece2b5bea3fd42878168d479ca8df1c06eb.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultados del modelo Lasso (BayesSearchCV):
+Modelo: Lasso
+Mejores Hiperparámetros: OrderedDict([(&#39;regresor__alpha&#39;, 0.0010426811836320535)])
+Tiempo de Entrenamiento (s): 11.143269062042236
+RMSE: 0.6148287777908682
+MAPE: 74126464293295.33
+R²: 0.6692078422360778
+Ljung-Box p-value: 0.7491108224034653
+Jarque-Bera p-value: 2.664795192432889e-26
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="arboles-de-decision">
+<h2>Árboles de Decisión<a class="headerlink" href="#arboles-de-decision" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+<span class="kn">from</span> <span class="nn">skopt.space</span> <span class="kn">import</span> <span class="n">Integer</span>
+
+<span class="c1"># Definir el modelo base</span>
+<span class="n">modelo_tree</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Espacio de búsqueda para hiperparámetros clave</span>
+<span class="n">espacio_tree</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;regresor__max_depth&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+    <span class="s1">&#39;regresor__min_samples_split&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="s1">&#39;regresor__min_samples_leaf&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Entrenar y evaluar</span>
+<span class="n">resultados_tree</span> <span class="o">=</span> <span class="n">entrenar_evaluar_modelo_bayes</span><span class="p">(</span>
+    <span class="n">modelo_tree</span><span class="p">,</span>
+    <span class="n">espacio_tree</span><span class="p">,</span>
+    <span class="n">X_train_scaled</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="p">,</span>
+    <span class="n">X_test_scaled</span><span class="p">,</span>
+    <span class="n">y_test</span>
+<span class="p">)</span>
+
+<span class="c1"># Mostrar resultados</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Resultados del modelo Árbol de Decisión (BayesSearchCV):&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">resultados_tree</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/bd19c93789d4f6538aca7620b6d09b88e44e5dbbd8aa76a142a2fc9dd3303d0b.png" src="_images/bd19c93789d4f6538aca7620b6d09b88e44e5dbbd8aa76a142a2fc9dd3303d0b.png" />
+<img alt="_images/87ccb43e50bdf240ec44bdef4487d40f87ed5a5e3007e9048087d5f80cd6ca6e.png" src="_images/87ccb43e50bdf240ec44bdef4487d40f87ed5a5e3007e9048087d5f80cd6ca6e.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultados del modelo Árbol de Decisión (BayesSearchCV):
+Modelo: DecisionTreeRegressor
+Mejores Hiperparámetros: OrderedDict([(&#39;regresor__max_depth&#39;, 7), (&#39;regresor__min_samples_leaf&#39;, 5), (&#39;regresor__min_samples_split&#39;, 2)])
+Tiempo de Entrenamiento (s): 15.692584991455078
+RMSE: 0.5717621717981829
+MAPE: 69737343385224.016
+R²: 0.713926474258963
+Ljung-Box p-value: 0.3115244249120211
+Jarque-Bera p-value: 4.081777562335036e-13
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="random-forest">
+<h2>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
+<span class="kn">from</span> <span class="nn">skopt.space</span> <span class="kn">import</span> <span class="n">Integer</span>
+
+<span class="c1"># Definir el modelo base</span>
+<span class="n">modelo_rf</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Espacio de búsqueda para los hiperparámetros más relevantes</span>
+<span class="n">espacio_rf</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;regresor__n_estimators&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span>         <span class="c1"># Número de árboles</span>
+    <span class="s1">&#39;regresor__max_depth&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>                <span class="c1"># Profundidad máxima</span>
+    <span class="s1">&#39;regresor__min_samples_split&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>        <span class="c1"># Mínimo para dividir nodo</span>
+    <span class="s1">&#39;regresor__min_samples_leaf&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>           <span class="c1"># Mínimo por hoja</span>
+<span class="p">}</span>
+
+<span class="c1"># Entrenar y evaluar</span>
+<span class="n">resultados_rf</span> <span class="o">=</span> <span class="n">entrenar_evaluar_modelo_bayes</span><span class="p">(</span>
+    <span class="n">modelo_rf</span><span class="p">,</span>
+    <span class="n">espacio_rf</span><span class="p">,</span>
+    <span class="n">X_train_scaled</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="p">,</span>
+    <span class="n">X_test_scaled</span><span class="p">,</span>
+    <span class="n">y_test</span>
+<span class="p">)</span>
+
+<span class="c1"># Mostrar resultados</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Resultados del modelo Random Forest (BayesSearchCV):&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">resultados_rf</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0e952dcffa50a43ed0c985591e0cccfe299ef18dfd7791ea9fcfd886303b95b6.png" src="_images/0e952dcffa50a43ed0c985591e0cccfe299ef18dfd7791ea9fcfd886303b95b6.png" />
+<img alt="_images/6122039d105af34a605b29a29db5afcdc13a643e3814ef788ee2b732a2a22ae6.png" src="_images/6122039d105af34a605b29a29db5afcdc13a643e3814ef788ee2b732a2a22ae6.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultados del modelo Random Forest (BayesSearchCV):
+Modelo: Random Forest
+Mejores Hiperparámetros: OrderedDict([(&#39;regresor__max_depth&#39;, 9), (&#39;regresor__min_samples_leaf&#39;, 1), (&#39;regresor__min_samples_split&#39;, 2), (&#39;regresor__n_estimators&#39;, 300)])
+Tiempo de Entrenamiento (s): 413.53801703453064
+RMSE: 0.5826248888585275
+MAPE: 69055507555703.23
+R²: 0.7029531869853887
+Ljung-Box p-value: 0.4093510264448053
+Jarque-Bera p-value: 2.3300102986869734e-13
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="xgboost">
+<h2>XGBoost<a class="headerlink" href="#xgboost" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBRegressor</span>
+<span class="kn">from</span> <span class="nn">skopt.space</span> <span class="kn">import</span> <span class="n">Real</span><span class="p">,</span> <span class="n">Integer</span>
+
+<span class="c1"># Definir el modelo base</span>
+<span class="n">modelo_xgb</span> <span class="o">=</span> <span class="n">XGBRegressor</span><span class="p">(</span><span class="n">objective</span><span class="o">=</span><span class="s1">&#39;reg:squarederror&#39;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Espacio de búsqueda para hiperparámetros clave</span>
+<span class="n">espacio_xgb</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;regresor__n_estimators&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span>
+    <span class="s1">&#39;regresor__max_depth&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="s1">&#39;regresor__learning_rate&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;regresor__subsample&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+    <span class="s1">&#39;regresor__colsample_bytree&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Entrenar y evaluar</span>
+<span class="n">resultados_xgb</span> <span class="o">=</span> <span class="n">entrenar_evaluar_modelo_bayes</span><span class="p">(</span>
+    <span class="n">modelo_xgb</span><span class="p">,</span>
+    <span class="n">espacio_xgb</span><span class="p">,</span>
+    <span class="n">X_train_scaled</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="p">,</span>
+    <span class="n">X_test_scaled</span><span class="p">,</span>
+    <span class="n">y_test</span>
+<span class="p">)</span>
+
+<span class="c1"># Mostrar resultados</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Resultados del modelo XGBoost (BayesSearchCV):&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">resultados_xgb</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fa5bc2fb31e8cd3fc5dcca0edc585e09ac6f59adeab145caee3682df39849dc0.png" src="_images/fa5bc2fb31e8cd3fc5dcca0edc585e09ac6f59adeab145caee3682df39849dc0.png" />
+<img alt="_images/e632721e97363a1a3df5100ee2f18b7aeee1c65614896381e1ef335cea165633.png" src="_images/e632721e97363a1a3df5100ee2f18b7aeee1c65614896381e1ef335cea165633.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultados del modelo XGBoost (BayesSearchCV):
+Modelo: XGBoost
+Mejores Hiperparámetros: OrderedDict([(&#39;regresor__colsample_bytree&#39;, 1.0), (&#39;regresor__learning_rate&#39;, 0.027405851410116186), (&#39;regresor__max_depth&#39;, 3), (&#39;regresor__n_estimators&#39;, 300), (&#39;regresor__subsample&#39;, 0.5)])
+Tiempo de Entrenamiento (s): 50.8345992565155
+RMSE: 0.5972896593997621
+MAPE: 72278375636602.17
+R²: 0.6878115559591338
+Ljung-Box p-value: 0.4071910704920635
+Jarque-Bera p-value: 2.844096185813568e-16
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="support-vector-regression">
+<h2>Support Vector Regression<a class="headerlink" href="#support-vector-regression" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVR</span>
+<span class="kn">from</span> <span class="nn">skopt.space</span> <span class="kn">import</span> <span class="n">Real</span><span class="p">,</span> <span class="n">Categorical</span>
+
+<span class="c1"># Definir el modelo base</span>
+<span class="n">modelo_svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">()</span>
+
+<span class="c1"># Espacio reducido</span>
+<span class="n">espacio_svr</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;regresor__C&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;regresor__epsilon&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;regresor__kernel&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">([</span><span class="s1">&#39;linear&#39;</span><span class="p">])</span>  <span class="c1"># eliminamos &#39;poly&#39;</span>
+<span class="p">}</span>
+
+<span class="c1"># Ajustar la función para ejecutar solo 8 iteraciones</span>
+<span class="kn">from</span> <span class="nn">skopt</span> <span class="kn">import</span> <span class="n">BayesSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+
+<span class="n">pipeline_svr</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;regresor&#39;</span><span class="p">,</span> <span class="n">modelo_svr</span><span class="p">)])</span>
+
+<span class="n">search_svr</span> <span class="o">=</span> <span class="n">BayesSearchCV</span><span class="p">(</span>
+    <span class="n">estimator</span><span class="o">=</span><span class="n">pipeline_svr</span><span class="p">,</span>
+    <span class="n">search_spaces</span><span class="o">=</span><span class="n">espacio_svr</span><span class="p">,</span>
+    <span class="n">n_iter</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>  <span class="c1"># reducido</span>
+    <span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>      <span class="c1"># opcional: bajar de 5 a 3 para más velocidad</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+
+<span class="c1"># Entrenar</span>
+<span class="n">search_svr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Evaluar</span>
+<span class="n">y_pred_svr</span> <span class="o">=</span> <span class="n">search_svr</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">)</span>
+<span class="n">residuos</span> <span class="o">=</span> <span class="n">y_test</span> <span class="o">-</span> <span class="n">y_pred_svr</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">mean_absolute_percentage_error</span><span class="p">,</span> <span class="n">r2_score</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.diagnostic</span> <span class="kn">import</span> <span class="n">acorr_ljungbox</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">jarque_bera</span>
+
+<span class="n">resultados_svr</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Modelo&#39;</span><span class="p">:</span> <span class="s1">&#39;SVR&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Mejores Hiperparámetros&#39;</span><span class="p">:</span> <span class="n">search_svr</span><span class="o">.</span><span class="n">best_params_</span><span class="p">,</span>
+    <span class="s1">&#39;RMSE&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_svr</span><span class="p">)),</span>
+    <span class="s1">&#39;MAPE&#39;</span><span class="p">:</span> <span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_svr</span><span class="p">),</span>
+    <span class="s1">&#39;R²&#39;</span><span class="p">:</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_svr</span><span class="p">),</span>
+    <span class="s1">&#39;Ljung-Box p-value&#39;</span><span class="p">:</span> <span class="n">acorr_ljungbox</span><span class="p">(</span><span class="n">residuos</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">return_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s1">&#39;lb_pvalue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;Jarque-Bera p-value&#39;</span><span class="p">:</span> <span class="n">jarque_bera</span><span class="p">(</span><span class="n">residuos</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Resultados optimizados del modelo SVR:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">resultados_svr</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resultados optimizados del modelo SVR:
+Modelo: SVR
+Mejores Hiperparámetros: OrderedDict([(&#39;regresor__C&#39;, 0.569845463653536), (&#39;regresor__epsilon&#39;, 0.36381617755817935), (&#39;regresor__kernel&#39;, &#39;linear&#39;)])
+RMSE: 0.6286719614650436
+MAPE: 75054625844904.06
+R²: 0.6541442392805972
+Ljung-Box p-value: 0.7120928462516644
+Jarque-Bera p-value: 3.510787748855504e-36
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="resultados">
+<h2>RESULTADOS<a class="headerlink" href="#resultados" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Consolidar resultados</span>
+<span class="n">modelos_comparar</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">resultados_knn</span><span class="p">,</span>
+    <span class="n">resultados_rl</span><span class="p">,</span>
+    <span class="n">resultados_ridge</span><span class="p">,</span>
+    <span class="n">resultados_lasso</span><span class="p">,</span>
+    <span class="n">resultados_tree</span><span class="p">,</span>
+    <span class="n">resultados_rf</span><span class="p">,</span>
+    <span class="n">resultados_xgb</span>
+<span class="p">]</span>
+
+<span class="c1"># Crear DataFrame</span>
+<span class="n">df_resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">modelos_comparar</span><span class="p">)</span>
+
+<span class="c1"># Reordenar columnas si deseas</span>
+<span class="n">columnas_orden</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Modelo&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;RMSE&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;MAPE&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;R²&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Ljung-Box p-value&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Jarque-Bera p-value&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Mejores Hiperparámetros&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Tiempo de Entrenamiento (s)&#39;</span>
+<span class="p">]</span>
+
+<span class="n">df_resultados</span> <span class="o">=</span> <span class="n">df_resultados</span><span class="p">[</span><span class="n">columnas_orden</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_resultados</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                  Modelo      RMSE          MAPE        R²  Ljung-Box p-value  \
+0                    KNN  0.608567  6.969857e+13  0.675912           0.428810   
+1       Regresión Lineal  0.614765  7.405591e+13  0.669276           0.748646   
+2                  Ridge  0.614556  7.410244e+13  0.669501           0.749387   
+3                  Lasso  0.614829  7.412646e+13  0.669208           0.749111   
+4  DecisionTreeRegressor  0.571762  6.973734e+13  0.713926           0.311524   
+5          Random Forest  0.582625  6.905551e+13  0.702953           0.409351   
+6                XGBoost  0.597290  7.227838e+13  0.687812           0.407191   
+
+   Jarque-Bera p-value                            Mejores Hiperparámetros  \
+0         6.615172e-11  {&#39;regresor__n_neighbors&#39;: 15, &#39;regresor__p&#39;: 2...   
+1         2.632965e-26                                                N/A   
+2         3.665240e-26             {&#39;regresor__alpha&#39;: 80.00069562111437}   
+3         2.664795e-26         {&#39;regresor__alpha&#39;: 0.0010426811836320535}   
+4         4.081778e-13  {&#39;regresor__max_depth&#39;: 7, &#39;regresor__min_samp...   
+5         2.330010e-13  {&#39;regresor__max_depth&#39;: 9, &#39;regresor__min_samp...   
+6         2.844096e-16  {&#39;regresor__colsample_bytree&#39;: 1.0, &#39;regresor_...   
+
+   Tiempo de Entrenamiento (s)  
+0                    17.623750  
+1                     0.039011  
+2                    13.556022  
+3                    11.143269  
+4                    14.759109  
+5                   413.538017  
+6                    50.834599  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+
+<span class="c1"># Mostrar tabla interactiva con sorteo y filtros</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">df_resultados</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Modelo&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;RMSE&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;R²&#39;</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="s1">&#39;MAPE&#39;</span><span class="p">,</span>
+    <span class="n">hover_data</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MAPE&#39;</span><span class="p">,</span> <span class="s1">&#39;R²&#39;</span><span class="p">,</span> <span class="s1">&#39;RMSE&#39;</span><span class="p">],</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Comparación de Modelos: RMSE vs Modelo&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;DarkSlateGrey&#39;</span><span class="p">)))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>El modelo con menor RMSE fue el DecisionTreeRegressor (0.5718), seguido por Random Forest (0.5826). Esto sugiere que estos modelos presentaron el menor error promedio en las predicciones.</p>
+<ul class="simple">
+<li><p>En términos de R², el DecisionTreeRegressor (0.714) también obtuvo el valor más alto, indicando que es el que mejor explica la variabilidad de los datos.</p></li>
+<li><p>Sin embargo, el MAPE es extremadamente alto en todos los modelos (~7e+13), lo que sugiere un posible problema de escala o división por cero durante el cálculo del MAPE. Esto debe revisarse, ya que invalida la interpretación de esa métrica tal como está.</p></li>
+<li><p>Los p-valores de Ljung-Box fueron todos mayores a 0.05, lo que indica que no hay evidencia significativa de autocorrelación en los residuos, lo cual es deseable.</p></li>
+<li><p>En contraste, todos los p-valores de Jarque-Bera son extremadamente bajos (&lt; 0.001), lo que indica que los residuos no siguen una distribución normal. Esto es común en modelos de machine learning no paramétricos, pero importante si se busca aplicar inferencia estadística.</p></li>
+<li><p>El modelo más rápido fue la Regresión Lineal (0.039 s), útil como línea base.</p></li>
+<li><p>Random Forest fue el más costoso computacionalmente (413.5 s), mientras que XGBoost también mostró un tiempo considerable (50.8 s), aunque menor y posiblemente más eficiente en términos de trade-off entre precisión y tiempo.</p></li>
+</ul>
+<p>El modelo DecisionTreeRegressor mostró el mejor desempeño general en términos de precisión (RMSE y R²), además de ser razonablemente eficiente en tiempo de cómputo. No obstante, es importante revisar el cálculo del MAPE, ya que los valores actuales indican una posible distorsión.</p>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="deteccion-de-fraude">
 <h1>Detección de fraude<a class="headerlink" href="#deteccion-de-fraude" title="Permalink to this heading">#</a></h1>
@@ -951,15 +1889,15 @@ Length: 433, dtype: object
 <span class="n">train_data_reducido</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X_sin_colinealidad</span><span class="p">,</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;isFraud&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Confirmación</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Dataset final:&quot;</span><span class="p">,</span> <span class="n">train_data_reducido</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🗑️ Variables eliminadas por VIF:&quot;</span><span class="p">,</span> <span class="n">columnas_eliminadas</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dataset final:&quot;</span><span class="p">,</span> <span class="n">train_data_reducido</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Variables eliminadas por VIF:&quot;</span><span class="p">,</span> <span class="n">columnas_eliminadas</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>🗑️ Eliminando 22 variables con VIF ≥ 10: [&#39;TransactionID&#39;, &#39;card3&#39;, &#39;card5&#39;, &#39;addr1&#39;, &#39;addr2&#39;, &#39;C1&#39;, &#39;C5&#39;, &#39;C13&#39;, &#39;D9&#39;, &#39;V1&#39;, &#39;V2&#39;, &#39;V3&#39;, &#39;V4&#39;, &#39;V6&#39;, &#39;V7&#39;, &#39;V8&#39;, &#39;V9&#39;, &#39;V14&#39;, &#39;V23&#39;, &#39;V24&#39;, &#39;V25&#39;, &#39;V26&#39;]
-✅ Dataset final: (590540, 29)
-🗑️ Variables eliminadas por VIF: [&#39;TransactionID&#39;, &#39;card3&#39;, &#39;card5&#39;, &#39;addr1&#39;, &#39;addr2&#39;, &#39;C1&#39;, &#39;C5&#39;, &#39;C13&#39;, &#39;D9&#39;, &#39;V1&#39;, &#39;V2&#39;, &#39;V3&#39;, &#39;V4&#39;, &#39;V6&#39;, &#39;V7&#39;, &#39;V8&#39;, &#39;V9&#39;, &#39;V14&#39;, &#39;V23&#39;, &#39;V24&#39;, &#39;V25&#39;, &#39;V26&#39;]
+Dataset final: (590540, 29)
+Variables eliminadas por VIF: [&#39;TransactionID&#39;, &#39;card3&#39;, &#39;card5&#39;, &#39;addr1&#39;, &#39;addr2&#39;, &#39;C1&#39;, &#39;C5&#39;, &#39;C13&#39;, &#39;D9&#39;, &#39;V1&#39;, &#39;V2&#39;, &#39;V3&#39;, &#39;V4&#39;, &#39;V6&#39;, &#39;V7&#39;, &#39;V8&#39;, &#39;V9&#39;, &#39;V14&#39;, &#39;V23&#39;, &#39;V24&#39;, &#39;V25&#39;, &#39;V26&#39;]
 </pre></div>
 </div>
 </div>
@@ -1180,11 +2118,7 @@ id_38  ~  DeviceType (p = 0.0000)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/miniconda3/envs/ml_venv/lib/python3.9/site-packages/sklearn/preprocessing/_encoders.py:972: FutureWarning: `sparse` was renamed to `sparse_output` in version 1.2 and will be removed in 1.4. `sparse_output` is ignored unless you leave `sparse` to its default value.
-  warnings.warn(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✅ Dataset final con categóricas codificadas: (590540, 37)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset final con categóricas codificadas: (590540, 37)
 </pre></div>
 </div>
 </div>
@@ -1200,7 +2134,7 @@ id_38  ~  DeviceType (p = 0.0000)
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dimensiones finales: (590540, 37)
 Columnas finales:
- [&#39;TransactionAmt&#39;, &#39;card1&#39;, &#39;card2&#39;, &#39;dist1&#39;, &#39;dist2&#39;, &#39;C3&#39;, &#39;D1&#39;, &#39;D3&#39;, &#39;D4&#39;, &#39;D5&#39;, &#39;D6&#39;, &#39;D7&#39;, &#39;D8&#39;, &#39;D10&#39;, &#39;D11&#39;, &#39;D12&#39;, &#39;D13&#39;, &#39;D14&#39;, &#39;D15&#39;, &#39;V10&#39;, &#39;V12&#39;, &#39;V15&#39;, &#39;V17&#39;, &#39;V19&#39;, &#39;V27&#39;, &#39;V29&#39;, &#39;V35&#39;, &#39;V37&#39;, &#39;isFraud&#39;, &#39;ProductCD_C&#39;, &#39;ProductCD_H&#39;, &#39;ProductCD_R&#39;, &#39;ProductCD_S&#39;, &#39;ProductCD_W&#39;, &#39;M1_F&#39;, &#39;M1_T&#39;, &#39;M1_nan&#39;]
+ [&#39;TransactionAmt&#39;, &#39;card1&#39;, &#39;card2&#39;, &#39;dist1&#39;, &#39;dist2&#39;, &#39;C3&#39;, &#39;D1&#39;, &#39;D3&#39;, &#39;D4&#39;, &#39;D5&#39;, &#39;D6&#39;, &#39;D7&#39;, &#39;D8&#39;, &#39;D10&#39;, &#39;D11&#39;, &#39;D12&#39;, &#39;D13&#39;, &#39;D14&#39;, &#39;D15&#39;, &#39;V10&#39;, &#39;V12&#39;, &#39;V15&#39;, &#39;V17&#39;, &#39;V19&#39;, &#39;V27&#39;, &#39;V29&#39;, &#39;V35&#39;, &#39;V37&#39;, &#39;isFraud&#39;, &#39;M1_F&#39;, &#39;M1_T&#39;, &#39;M1_nan&#39;, &#39;ProductCD_C&#39;, &#39;ProductCD_H&#39;, &#39;ProductCD_R&#39;, &#39;ProductCD_S&#39;, &#39;ProductCD_W&#39;]
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1234,14 +2168,14 @@ Columnas finales:
       <th>...</th>
       <th>V37</th>
       <th>isFraud</th>
+      <th>M1_F</th>
+      <th>M1_T</th>
+      <th>M1_nan</th>
       <th>ProductCD_C</th>
       <th>ProductCD_H</th>
       <th>ProductCD_R</th>
       <th>ProductCD_S</th>
       <th>ProductCD_W</th>
-      <th>M1_F</th>
-      <th>M1_T</th>
-      <th>M1_nan</th>
     </tr>
   </thead>
   <tbody>
@@ -1261,13 +2195,13 @@ Columnas finales:
       <td>1.0</td>
       <td>0</td>
       <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1286,9 +2220,9 @@ Columnas finales:
       <td>0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
@@ -1309,13 +2243,13 @@ Columnas finales:
       <td>1.0</td>
       <td>0</td>
       <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1334,9 +2268,9 @@ Columnas finales:
       <td>0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
@@ -1357,13 +2291,13 @@ Columnas finales:
       <td>1.0</td>
       <td>0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
     </tr>
   </tbody>
 </table>
@@ -1408,14 +2342,14 @@ Columnas finales:
       <th>...</th>
       <th>V37</th>
       <th>isFraud</th>
+      <th>M1_F</th>
+      <th>M1_T</th>
+      <th>M1_nan</th>
       <th>ProductCD_C</th>
       <th>ProductCD_H</th>
       <th>ProductCD_R</th>
       <th>ProductCD_S</th>
       <th>ProductCD_W</th>
-      <th>M1_F</th>
-      <th>M1_T</th>
-      <th>M1_nan</th>
     </tr>
   </thead>
   <tbody>
@@ -1458,14 +2392,14 @@ Columnas finales:
       <td>...</td>
       <td>1.077145</td>
       <td>0.034990</td>
+      <td>0.000042</td>
+      <td>0.540886</td>
+      <td>0.459071</td>
       <td>0.116028</td>
       <td>0.055922</td>
       <td>0.063838</td>
       <td>0.019690</td>
       <td>0.744522</td>
-      <td>0.000042</td>
-      <td>0.540886</td>
-      <td>0.459071</td>
     </tr>
     <tr>
       <th>std</th>
@@ -1482,14 +2416,14 @@ Columnas finales:
       <td>...</td>
       <td>0.585511</td>
       <td>0.183755</td>
+      <td>0.006506</td>
+      <td>0.498326</td>
+      <td>0.498322</td>
       <td>0.320258</td>
       <td>0.229771</td>
       <td>0.244465</td>
       <td>0.138934</td>
       <td>0.436130</td>
-      <td>0.006506</td>
-      <td>0.498326</td>
-      <td>0.498322</td>
     </tr>
     <tr>
       <th>min</th>
@@ -1555,13 +2489,13 @@ Columnas finales:
       <td>1.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>1.000000</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
-      <td>0.000000</td>
     </tr>
     <tr>
       <th>75%</th>
@@ -1579,12 +2513,12 @@ Columnas finales:
       <td>1.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>1.000000</td>
       <td>1.000000</td>
       <td>0.000000</td>
-      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>1.000000</td>
     </tr>
     <tr>
@@ -1633,6 +2567,13 @@ Name: proportion, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_final</span> <span class="o">=</span> <span class="n">train_final</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">imblearn.over_sampling</span> <span class="kn">import</span> <span class="n">SMOTE</span>
 
 <span class="c1"># Separar X e y desde train_final</span>
@@ -1659,7 +2600,289 @@ Name: proportion, dtype: float64
 </div>
 </div>
 </div>
-<p>TEST</p>
+<section id="funcon-generica">
+<h3>Funcón generica<a class="headerlink" href="#funcon-generica" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">StratifiedKFold</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">RocCurveDisplay</span>
+<span class="kn">from</span> <span class="nn">skopt</span> <span class="kn">import</span> <span class="n">BayesSearchCV</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">entrenar_y_evaluar_modelo</span><span class="p">(</span><span class="n">nombre_modelo</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">param_space</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Entrenando modelo: </span><span class="si">{</span><span class="n">nombre_modelo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Validación cruzada estratificada</span>
+    <span class="n">cv</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+    <span class="c1"># BayesSearchCV</span>
+    <span class="n">opt</span> <span class="o">=</span> <span class="n">BayesSearchCV</span><span class="p">(</span>
+        <span class="n">estimator</span><span class="o">=</span><span class="n">pipeline</span><span class="p">,</span>
+        <span class="n">search_spaces</span><span class="o">=</span><span class="n">param_space</span><span class="p">,</span>
+        <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
+        <span class="n">n_iter</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+        <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;recall&#39;</span><span class="p">,</span>
+        <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Entrenar</span>
+    <span class="n">opt</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">modelo</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">best_estimator_</span>
+
+    <span class="c1"># Predicción</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">y_prob</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="s2">&quot;predict_proba&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+
+    <span class="c1"># Métricas</span>
+    <span class="n">precision</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">recall</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">f1</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">)</span> <span class="k">if</span> <span class="n">y_prob</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">)</span>
+    <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+    <span class="c1"># Mostrar resultados gráficos</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; Matriz de Confusión:</span><span class="se">\n</span><span class="si">{</span><span class="n">cm</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">y_prob</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">RocCurveDisplay</span><span class="o">.</span><span class="n">from_predictions</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Curva ROC - </span><span class="si">{</span><span class="n">nombre_modelo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="c1"># Resultados finales</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;Modelo&quot;</span><span class="p">:</span> <span class="n">nombre_modelo</span><span class="p">,</span>
+        <span class="s2">&quot;Precision&quot;</span><span class="p">:</span> <span class="n">precision</span><span class="p">,</span>
+        <span class="s2">&quot;Recall&quot;</span><span class="p">:</span> <span class="n">recall</span><span class="p">,</span>
+        <span class="s2">&quot;F1-score&quot;</span><span class="p">:</span> <span class="n">f1</span><span class="p">,</span>
+        <span class="s2">&quot;AUC&quot;</span><span class="p">:</span> <span class="n">auc</span><span class="p">,</span>
+        <span class="s2">&quot;Mejores Hiperparámetros&quot;</span><span class="p">:</span> <span class="n">opt</span><span class="o">.</span><span class="n">best_params_</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skopt.space</span> <span class="kn">import</span> <span class="n">Real</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">Categorical</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBClassifier</span>
+
+<span class="k">def</span> <span class="nf">definir_modelo_y_espacio</span><span class="p">(</span><span class="n">nombre</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">nombre</span> <span class="o">==</span> <span class="s2">&quot;Logistic Regression&quot;</span><span class="p">:</span>
+        <span class="n">modelo</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span>
+            <span class="n">StandardScaler</span><span class="p">(),</span>
+            <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;liblinear&#39;</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">espacio</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;logisticregression__C&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">)</span>  <span class="c1"># Rango más estrecho</span>
+        <span class="p">}</span>
+
+    <span class="k">elif</span> <span class="n">nombre</span> <span class="o">==</span> <span class="s2">&quot;KNN&quot;</span><span class="p">:</span>
+        <span class="n">modelo</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span>
+            <span class="n">StandardScaler</span><span class="p">(),</span>
+            <span class="n">KNeighborsClassifier</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="n">espacio</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;kneighborsclassifier__n_neighbors&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>  <span class="c1"># Reducido</span>
+            <span class="s1">&#39;kneighborsclassifier__weights&#39;</span><span class="p">:</span> <span class="n">Categorical</span><span class="p">([</span><span class="s1">&#39;uniform&#39;</span><span class="p">]),</span>
+            <span class="s1">&#39;kneighborsclassifier__p&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="p">}</span>
+
+    <span class="k">elif</span> <span class="n">nombre</span> <span class="o">==</span> <span class="s2">&quot;Naive Bayes&quot;</span><span class="p">:</span>
+        <span class="n">modelo</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span>
+            <span class="n">StandardScaler</span><span class="p">(),</span>
+            <span class="n">GaussianNB</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="n">espacio</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Sin búsqueda</span>
+
+    <span class="k">elif</span> <span class="n">nombre</span> <span class="o">==</span> <span class="s2">&quot;Decision Tree&quot;</span><span class="p">:</span>
+        <span class="n">modelo</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+        <span class="n">espacio</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>  <span class="c1"># Reducido</span>
+            <span class="s1">&#39;min_samples_split&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="p">}</span>
+
+    <span class="k">elif</span> <span class="n">nombre</span> <span class="o">==</span> <span class="s2">&quot;Random Forest&quot;</span><span class="p">:</span>
+        <span class="n">modelo</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">espacio</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>  <span class="c1"># Reducido</span>
+            <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+            <span class="s1">&#39;min_samples_split&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="p">}</span>
+
+    <span class="k">elif</span> <span class="n">nombre</span> <span class="o">==</span> <span class="s2">&quot;XGBoost&quot;</span><span class="p">:</span>
+        <span class="n">modelo</span> <span class="o">=</span> <span class="n">XGBClassifier</span><span class="p">(</span><span class="n">use_label_encoder</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">eval_metric</span><span class="o">=</span><span class="s1">&#39;logloss&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">espacio</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>  <span class="c1"># Reducido</span>
+            <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+            <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="n">Real</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">prior</span><span class="o">=</span><span class="s1">&#39;log-uniform&#39;</span><span class="p">)</span>
+        <span class="p">}</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Modelo no reconocido&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">modelo</span><span class="p">,</span> <span class="n">espacio</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombres_modelos</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Logistic Regression&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;KNN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Naive Bayes&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Decision Tree&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Random Forest&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;XGBoost&quot;</span>
+<span class="p">]</span>
+
+<span class="n">resultados_todos</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">nombre</span> <span class="ow">in</span> <span class="n">nombres_modelos</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">modelo</span><span class="p">,</span> <span class="n">espacio</span> <span class="o">=</span> <span class="n">definir_modelo_y_espacio</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span>
+        <span class="n">resultado</span> <span class="o">=</span> <span class="n">entrenar_y_evaluar_modelo</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="n">espacio</span><span class="p">,</span> <span class="n">X_train_res</span><span class="p">,</span> <span class="n">y_train_res</span><span class="p">)</span>
+        <span class="n">resultados_todos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; Error entrenando </span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Entrenando modelo: Logistic Regression
+ Matriz de Confusión:
+[[39430 17515]
+ [12832 44113]]
+</pre></div>
+</div>
+<img alt="_images/97597e17db44cec3bbef0bd4cb97729da57d9d19bd588b2d19612b5d6f4ded28.png" src="_images/97597e17db44cec3bbef0bd4cb97729da57d9d19bd588b2d19612b5d6f4ded28.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Entrenando modelo: KNN
+ Matriz de Confusión:
+[[53830  3115]
+ [  428 56517]]
+</pre></div>
+</div>
+<img alt="_images/56f05f0b38560a60cc2ba5d7c44a8e4c9566836d7bd0dae3c30a8c97e5470733.png" src="_images/56f05f0b38560a60cc2ba5d7c44a8e4c9566836d7bd0dae3c30a8c97e5470733.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Entrenando modelo: Naive Bayes
+ Error entrenando Naive Bayes: The search_spaces parameter should contain at least onenon-empty search space, got {}
+
+ Entrenando modelo: Decision Tree
+ Matriz de Confusión:
+[[51211  5734]
+ [10657 46288]]
+</pre></div>
+</div>
+<img alt="_images/ae9116b0fcaa56696f01f20f9bf358bb310d6abfda7763f46a7c404bfe608d88.png" src="_images/ae9116b0fcaa56696f01f20f9bf358bb310d6abfda7763f46a7c404bfe608d88.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Entrenando modelo: Random Forest
+ Matriz de Confusión:
+[[54143  2802]
+ [ 5346 51599]]
+</pre></div>
+</div>
+<img alt="_images/2745950b6af391c7102a81dea1fff74e47b6c781e593c1bcdf140651cf0c4067.png" src="_images/2745950b6af391c7102a81dea1fff74e47b6c781e593c1bcdf140651cf0c4067.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Entrenando modelo: XGBoost
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/miniconda3/envs/ml_venv/lib/python3.9/site-packages/xgboost/core.py:158: UserWarning: [18:55:09] WARNING: /Users/runner/work/xgboost/xgboost/src/learner.cc:740: 
+Parameters: { &quot;use_label_encoder&quot; } are not used.
+
+  warnings.warn(smsg, UserWarning)
+/opt/miniconda3/envs/ml_venv/lib/python3.9/site-packages/xgboost/core.py:158: UserWarning: [18:55:09] WARNING: /Users/runner/work/xgboost/xgboost/src/learner.cc:740: 
+Parameters: { &quot;use_label_encoder&quot; } are not used.
+
+  warnings.warn(smsg, UserWarning)
+/opt/miniconda3/envs/ml_venv/lib/python3.9/site-packages/xgboost/core.py:158: UserWarning: [18:55:09] WARNING: /Users/runner/work/xgboost/xgboost/src/learner.cc:740: 
+Parameters: { &quot;use_label_encoder&quot; } are not used.
+
+  warnings.warn(smsg, UserWarning)
+/opt/miniconda3/envs/ml_venv/lib/python3.9/site-packages/xgboost/core.py:158: UserWarning: [18:55:09] WARNING: /Users/runner/work/xgboost/xgboost/src/learner.cc:740: 
+Parameters: { &quot;use_label_encoder&quot; } are not used.
+
+  warnings.warn(smsg, UserWarning)
+/opt/miniconda3/envs/ml_venv/lib/python3.9/site-packages/xgboost/core.py:158: UserWarning: [18:55:10] WARNING: /Users/runner/work/xgboost/xgboost/src/learner.cc:740: 
+Parameters: { &quot;use_label_encoder&quot; } are not used.
+
+  warnings.warn(smsg, UserWarning)
+/opt/miniconda3/envs/ml_venv/lib/python3.9/site-packages/xgboost/core.py:158: UserWarning: [18:55:10] WARNING: /Users/runner/work/xgboost/xgboost/src/learner.cc:740: 
+Parameters: { &quot;use_label_encoder&quot; } are not used.
+
+  warnings.warn(smsg, UserWarning)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Matriz de Confusión:
+[[55780  1165]
+ [ 3329 53616]]
+</pre></div>
+</div>
+<img alt="_images/16bd5145688e71506a408102341cd6fd911592d89834235d198fe66c5f799d76.png" src="_images/16bd5145688e71506a408102341cd6fd911592d89834235d198fe66c5f799d76.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resultados_todos</span><span class="p">)</span>
+
+<span class="n">df_resultados</span> <span class="o">=</span> <span class="n">df_resultados</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Recall&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_resultados</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">df_resultados</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Modelo&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Recall&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Recall&#39;</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s1">&#39;Recall&#39;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Comparación de Modelos - Clasificación de Fraude&#39;</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">500</span>
+<span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">texttemplate</span><span class="o">=</span><span class="s1">&#39;%</span><span class="si">{text:.3f}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">textposition</span><span class="o">=</span><span class="s1">&#39;outside&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                Modelo  Precision    Recall  F1-score       AUC  \
+0                  KNN   0.947763  0.992484  0.969608  0.998340   
+1              XGBoost   0.978734  0.941540  0.959777  0.991437   
+2        Random Forest   0.948494  0.906120  0.926823  0.978568   
+3        Decision Tree   0.889777  0.812855  0.849578  0.935362   
+4  Logistic Regression   0.715795  0.774660  0.744065  0.807602   
+
+                             Mejores Hiperparámetros  
+0  {&#39;kneighborsclassifier__n_neighbors&#39;: 5, &#39;knei...  
+1  {&#39;learning_rate&#39;: 0.15963496832524965, &#39;max_de...  
+2  {&#39;max_depth&#39;: 9, &#39;min_samples_split&#39;: 5, &#39;n_es...  
+3           {&#39;max_depth&#39;: 6, &#39;min_samples_split&#39;: 5}  
+4      {&#39;logisticregression__C&#39;: 0.6876831063110332}  
+</pre></div>
+</div>
+</div>
+</div>
+<p>KNN es el mejor modelo en sensibilidad (Recall = 0.992)</p>
+<ul class="simple">
+<li><p>Este resultado indica que el modelo detecta el 99.2% de los fraudes, lo cual es ideal para tareas donde el costo de no detectar un fraude es muy alto.</p></li>
+<li><p>Aunque KNN puede ser computacionalmente costoso, su rendimiento en recall lo convierte en el modelo más confiable para minimizar falsos negativos.</p></li>
+</ul>
+<p>XGBoost y Random Forest también muestran un alto Recall</p>
+<ul class="simple">
+<li><p>XGBoost con 0.942 y Random Forest con 0.906 ofrecen muy buen desempeño, aunque ligeramente inferior al de KNN.</p></li>
+<li><p>Ambos modelos presentan además un mejor balance entre precisión y recall que KNN, lo cual podría ser relevante en contextos con recursos limitados o necesidad de mayor robustez.</p></li>
+</ul>
+<p>Regresión Logística queda muy por detrás</p>
+<ul class="simple">
+<li><p>Con un recall de 0.775, Logistic Regression deja pasar cerca del 23% de los fraudes reales, lo cual lo hace poco confiable como herramienta de detección efectiva.</p></li>
+</ul>
+</section>
 </section>
 </section>
 
@@ -1703,6 +2926,15 @@ Name: proportion, dtype: float64
         <p class="prev-next-title">Welcome to your Jupyter Book</p>
       </div>
     </a>
+    <a class="right-next"
+       href="segmentacion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ejercicio Segmentación</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -1721,9 +2953,30 @@ Name: proportion, dtype: float64
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">VELOCIDAD DEL VIENTO</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Velocidad del viento</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lectura-de-datos">LECTURA DE DATOS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura-base-de-datos">ESTRUCTURA BASE DE DATOS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas-descriptivas">ESTADÍSTICAS DESCRIPTIVAS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-faltantes">DATOS FALTANTES</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion">VISUALIZACIÓN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-vif">ANALISIS VIF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-regresion">MODELOS DE REGRESIÓN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-lineal">REGRESIÓN LINEAL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge">RIDGE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso">LASSO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arboles-de-decision">Árboles de Decisión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">XGBoost</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-vector-regression">Support Vector Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados">RESULTADOS</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deteccion-de-fraude">Detección de fraude</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imputacion">Imputación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imputacion">Imputación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funcon-generica">Funcón generica</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
