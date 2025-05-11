@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Velocidad del viento &#8212; Machine Learning</title>
+    <title>Ejercicios Clasificación y regresión &#8212; Machine Learning</title>
   
   
   
@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Ejercicio Segmentación" href="segmentacion.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+    <link rel="prev" title="Parcial Final Aprendizaje de maquina" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -153,12 +153,12 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Parcial Final Aprendizaje de maquina
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Velocidad del viento</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Ejercicios Clasificación y regresión</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="segmentacion.html">Ejercicio Segmentación</a></li>
 </ul>
@@ -312,7 +312,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Velocidad del viento</h1>
+    <h1>Ejercicios Clasificación y regresión</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -322,23 +322,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Velocidad del viento</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lectura-de-datos">LECTURA DE DATOS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura-base-de-datos">ESTRUCTURA BASE DE DATOS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas-descriptivas">ESTADÍSTICAS DESCRIPTIVAS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-faltantes">DATOS FALTANTES</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion">VISUALIZACIÓN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-vif">ANALISIS VIF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-regresion">MODELOS DE REGRESIÓN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-lineal">REGRESIÓN LINEAL</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge">RIDGE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso">LASSO</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arboles-de-decision">Árboles de Decisión</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">XGBoost</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-vector-regression">Support Vector Regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados">RESULTADOS</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Ejercicios Clasificación y regresión</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidad-del-viento">Velocidad del viento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lectura-de-datos">Lectura de datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura-base-de-datos">ESTRUCTURA BASE DE DATOS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas-descriptivas">ESTADÍSTICAS DESCRIPTIVAS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-faltantes">DATOS FALTANTES</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion">VISUALIZACIÓN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-vif">ANALISIS VIF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-regresion">MODELOS DE REGRESIÓN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-lineal">REGRESIÓN LINEAL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge">RIDGE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso">LASSO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arboles-de-decision">Árboles de Decisión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">XGBoost</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#support-vector-regression">Support Vector Regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados">RESULTADOS</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deteccion-de-fraude">Detección de fraude</a><ul class="visible nav section-nav flex-column">
@@ -360,10 +363,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="velocidad-del-viento">
-<h1>Velocidad del viento<a class="headerlink" href="#velocidad-del-viento" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="ejercicios-clasificacion-y-regresion">
+<h1>Ejercicios Clasificación y regresión<a class="headerlink" href="#ejercicios-clasificacion-y-regresion" title="Permalink to this heading">#</a></h1>
+<section id="velocidad-del-viento">
+<h2>Velocidad del viento<a class="headerlink" href="#velocidad-del-viento" title="Permalink to this heading">#</a></h2>
 <section id="lectura-de-datos">
-<h2>LECTURA DE DATOS<a class="headerlink" href="#lectura-de-datos" title="Permalink to this heading">#</a></h2>
+<h3>Lectura de datos<a class="headerlink" href="#lectura-de-datos" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -402,7 +407,7 @@ document.write(`
 </div>
 </section>
 <section id="estructura-base-de-datos">
-<h2>ESTRUCTURA BASE DE DATOS<a class="headerlink" href="#estructura-base-de-datos" title="Permalink to this heading">#</a></h2>
+<h3>ESTRUCTURA BASE DE DATOS<a class="headerlink" href="#estructura-base-de-datos" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dimensiones: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -466,7 +471,7 @@ dtype: object
 <p>Aunque en este bloque no se observan los nombres originales, se destaca que ya se realizó una renombramiento apropiado de las columnas, acortando las etiquetas excesivamente largas y eliminando caracteres especiales o redundancias. Esto no solo mejora la legibilidad de las salidas gráficas, sino que también previene errores en operaciones de programación o visualización.</p>
 </section>
 <section id="estadisticas-descriptivas">
-<h2>ESTADÍSTICAS DESCRIPTIVAS<a class="headerlink" href="#estadisticas-descriptivas" title="Permalink to this heading">#</a></h2>
+<h3>ESTADÍSTICAS DESCRIPTIVAS<a class="headerlink" href="#estadisticas-descriptivas" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">[[</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;25%&quot;</span><span class="p">,</span> <span class="s2">&quot;50%&quot;</span><span class="p">,</span> <span class="s2">&quot;75%&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">]]</span>
@@ -648,7 +653,7 @@ dtype: object
 <p>Este análisis fundamenta la selección y tratamiento posterior de variables, así como el diseño de modelos robustos capaces de generalizar predicciones para velocidad del viento en escenarios de alta variabilidad ambiental.</p>
 </section>
 <section id="datos-faltantes">
-<h2>DATOS FALTANTES<a class="headerlink" href="#datos-faltantes" title="Permalink to this heading">#</a></h2>
+<h3>DATOS FALTANTES<a class="headerlink" href="#datos-faltantes" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">faltantes</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -688,7 +693,7 @@ dtype: object
 </div>
 </section>
 <section id="visualizacion">
-<h2>VISUALIZACIÓN<a class="headerlink" href="#visualizacion" title="Permalink to this heading">#</a></h2>
+<h3>VISUALIZACIÓN<a class="headerlink" href="#visualizacion" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vars_numericas</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
@@ -851,7 +856,7 @@ dtype: object
 </ul>
 </section>
 <section id="analisis-vif">
-<h2>ANALISIS VIF<a class="headerlink" href="#analisis-vif" title="Permalink to this heading">#</a></h2>
+<h3>ANALISIS VIF<a class="headerlink" href="#analisis-vif" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.stats.outliers_influence</span> <span class="kn">import</span> <span class="n">variance_inflation_factor</span>
@@ -1018,7 +1023,7 @@ Todas las variables tienen VIF &lt; 10
 </div>
 </section>
 <section id="modelos-de-regresion">
-<h2>MODELOS DE REGRESIÓN<a class="headerlink" href="#modelos-de-regresion" title="Permalink to this heading">#</a></h2>
+<h3>MODELOS DE REGRESIÓN<a class="headerlink" href="#modelos-de-regresion" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
@@ -1177,7 +1182,7 @@ Todas las variables tienen VIF &lt; 10
 </div>
 </section>
 <section id="knn">
-<h2>KNN<a class="headerlink" href="#knn" title="Permalink to this heading">#</a></h2>
+<h3>KNN<a class="headerlink" href="#knn" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsRegressor</span>
@@ -1228,7 +1233,7 @@ Jarque-Bera p-value: 6.615171952050504e-11
 </div>
 </section>
 <section id="regresion-lineal">
-<h2>REGRESIÓN LINEAL<a class="headerlink" href="#regresion-lineal" title="Permalink to this heading">#</a></h2>
+<h3>REGRESIÓN LINEAL<a class="headerlink" href="#regresion-lineal" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
@@ -1288,7 +1293,7 @@ Jarque-Bera p-value: 2.632964703273337e-26
 </div>
 </section>
 <section id="ridge">
-<h2>RIDGE<a class="headerlink" href="#ridge" title="Permalink to this heading">#</a></h2>
+<h3>RIDGE<a class="headerlink" href="#ridge" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span>
@@ -1337,7 +1342,7 @@ Jarque-Bera p-value: 3.665239519368606e-26
 </div>
 </section>
 <section id="lasso">
-<h2>LASSO<a class="headerlink" href="#lasso" title="Permalink to this heading">#</a></h2>
+<h3>LASSO<a class="headerlink" href="#lasso" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Lasso</span>
@@ -1386,7 +1391,7 @@ Jarque-Bera p-value: 2.664795192432889e-26
 </div>
 </section>
 <section id="arboles-de-decision">
-<h2>Árboles de Decisión<a class="headerlink" href="#arboles-de-decision" title="Permalink to this heading">#</a></h2>
+<h3>Árboles de Decisión<a class="headerlink" href="#arboles-de-decision" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
@@ -1437,7 +1442,7 @@ Jarque-Bera p-value: 4.081777562335036e-13
 </div>
 </section>
 <section id="random-forest">
-<h2>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this heading">#</a></h2>
+<h3>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
@@ -1489,7 +1494,7 @@ Jarque-Bera p-value: 2.3300102986869734e-13
 </div>
 </section>
 <section id="xgboost">
-<h2>XGBoost<a class="headerlink" href="#xgboost" title="Permalink to this heading">#</a></h2>
+<h3>XGBoost<a class="headerlink" href="#xgboost" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBRegressor</span>
@@ -1542,7 +1547,7 @@ Jarque-Bera p-value: 2.844096185813568e-16
 </div>
 </section>
 <section id="support-vector-regression">
-<h2>Support Vector Regression<a class="headerlink" href="#support-vector-regression" title="Permalink to this heading">#</a></h2>
+<h3>Support Vector Regression<a class="headerlink" href="#support-vector-regression" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVR</span>
@@ -1616,7 +1621,7 @@ Jarque-Bera p-value: 3.510787748855504e-36
 </div>
 </section>
 <section id="resultados">
-<h2>RESULTADOS<a class="headerlink" href="#resultados" title="Permalink to this heading">#</a></h2>
+<h3>RESULTADOS<a class="headerlink" href="#resultados" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Consolidar resultados</span>
@@ -1716,6 +1721,7 @@ Jarque-Bera p-value: 3.510787748855504e-36
 <li><p>Random Forest fue el más costoso computacionalmente (413.5 s), mientras que XGBoost también mostró un tiempo considerable (50.8 s), aunque menor y posiblemente más eficiente en términos de trade-off entre precisión y tiempo.</p></li>
 </ul>
 <p>El modelo DecisionTreeRegressor mostró el mejor desempeño general en términos de precisión (RMSE y R²), además de ser razonablemente eficiente en tiempo de cómputo. No obstante, es importante revisar el cálculo del MAPE, ya que los valores actuales indican una posible distorsión.</p>
+</section>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="deteccion-de-fraude">
@@ -2923,7 +2929,7 @@ Parameters: { &quot;use_label_encoder&quot; } are not used.
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+        <p class="prev-next-title">Parcial Final Aprendizaje de maquina</p>
       </div>
     </a>
     <a class="right-next"
@@ -2953,23 +2959,26 @@ Parameters: { &quot;use_label_encoder&quot; } are not used.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Velocidad del viento</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lectura-de-datos">LECTURA DE DATOS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura-base-de-datos">ESTRUCTURA BASE DE DATOS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas-descriptivas">ESTADÍSTICAS DESCRIPTIVAS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-faltantes">DATOS FALTANTES</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion">VISUALIZACIÓN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-vif">ANALISIS VIF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-regresion">MODELOS DE REGRESIÓN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-lineal">REGRESIÓN LINEAL</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge">RIDGE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso">LASSO</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arboles-de-decision">Árboles de Decisión</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">XGBoost</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-vector-regression">Support Vector Regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados">RESULTADOS</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Ejercicios Clasificación y regresión</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocidad-del-viento">Velocidad del viento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lectura-de-datos">Lectura de datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura-base-de-datos">ESTRUCTURA BASE DE DATOS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estadisticas-descriptivas">ESTADÍSTICAS DESCRIPTIVAS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-faltantes">DATOS FALTANTES</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion">VISUALIZACIÓN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-vif">ANALISIS VIF</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-regresion">MODELOS DE REGRESIÓN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regresion-lineal">REGRESIÓN LINEAL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge">RIDGE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lasso">LASSO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arboles-de-decision">Árboles de Decisión</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">XGBoost</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#support-vector-regression">Support Vector Regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resultados">RESULTADOS</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deteccion-de-fraude">Detección de fraude</a><ul class="visible nav section-nav flex-column">
